@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "findingfortunes",
+  "version": "${version}",
+  "name": "Finding Fortunes",
+  "description": "Adds simple fortune cookies.",
+  "authors": [
+    "RedPxnda"
+  ],
+  "contact": {
+    "sources": "https://github.com/RedPxnda/FindingFortunes"
+  },
+  "license": "MIT",
+  "icon": "assets/findingfortunes/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.redpxnda.findingfortunes.fabric.FindingFortunesFabric"
+    ]
+  },
+  "mixins": [
+    "findingfortunes.mixins.json",
+    "findingfortunes-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=9.1.12"
+  }
+}
