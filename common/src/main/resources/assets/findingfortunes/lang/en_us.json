@@ -1,3 +1,5 @@
 {
-  "item.findingfortunes.fortune_cookie": "Fortune Cookie"
+  "item.findingfortunes.fortune_cookie": "Fortune Cookie",
+  "item.findingfortunes.fortune": "Paper Fortune",
+  "itemGroup.findingfortunes.findingfortunes_tab": "Finding Fortunes"
 }

@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "client.HeldItemRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
