@@ -1,10 +1,12 @@
 package com.redpxnda.findingfortunes.registries;
 
+import com.redpxnda.findingfortunes.client.FortuneRenamingHandler;
 import com.redpxnda.nucleus.registration.ItemGroupCreator;
 import com.redpxnda.nucleus.registration.RegistryId;
 import dev.architectury.registry.CreativeTabRegistry;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.text.Text;
 
 public class FFRegistries {
@@ -12,7 +14,7 @@ public class FFRegistries {
     public static final FortuneCookieItem fortuneCookie = new FortuneCookieItem();
 
     @RegistryId("fortune")
-    public static final Item fortune = new Item(new Item.Settings());
+    public static final FortuneItem fortune = new FortuneItem();
 
     @RegistryId("findingfortunes_tab")
     public static final ItemGroup creativeTab = ItemGroupCreator.populate(
@@ -20,4 +22,7 @@ public class FFRegistries {
                 Text.translatable("itemGroup.findingfortunes.findingfortunes_tab"),
                 fortuneCookie::getDefaultStack),
             fortuneCookie, fortune);
+
+    @RegistryId("fortune_renamer")
+    public static final ScreenHandlerType<FortuneRenamingHandler> fortuneRenamingHandlerType = new ScreenHandlerType<>(FortuneRenamingHandler::new, FeatureFlags.VANILLA_FEATURES);
 }

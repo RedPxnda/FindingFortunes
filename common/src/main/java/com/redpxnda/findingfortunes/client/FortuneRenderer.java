@@ -1,5 +1,6 @@
 package com.redpxnda.findingfortunes.client;
 
+import com.redpxnda.findingfortunes.facet.FortuneData;
 import com.redpxnda.findingfortunes.mixin.client.HeldItemRendererAccessor;
 import com.redpxnda.findingfortunes.registries.FFRegistries;
 import com.redpxnda.nucleus.client.ArmRenderer;
@@ -88,15 +89,18 @@ public class FortuneRenderer {
         vertexConsumer.vertex(matrix4f, 135.0f, -7.0f, 0.0f).color(255, 255, 255, 255).texture(1.0f, 0.0f).light(light).next();
         vertexConsumer.vertex(matrix4f, -7.0f, -7.0f, 0.0f).color(255, 255, 255, 255).texture(0.0f, 0.0f).light(light).next();
 
-        matrices.translate(0, 0, -0.1f);
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
-        List<OrderedText> texts = textRenderer.wrapLines(stack.getName(), 130);
-        int i = 0;
-        for (OrderedText text : texts) {
-            int x = 64 - textRenderer.getWidth(text)/2;
-            int y = 64 + i*10 - texts.size()*5;
-            textRenderer.draw(text, x, y, TEXT_COLOR.argb(), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
-            i++;
+        FortuneData data = FortuneData.KEY.get(stack);
+        if (data != null) {
+            matrices.translate(0, 0, -0.1f);
+            TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+            List<OrderedText> texts = textRenderer.wrapLines(data.text, 130);
+            int i = 0;
+            for (OrderedText text : texts) {
+                int x = 64 - textRenderer.getWidth(text) / 2;
+                int y = 64 + i * 10 - texts.size() * 5;
+                textRenderer.draw(text, x, y, TEXT_COLOR.argb(), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
+                i++;
+            }
         }
     }
 }

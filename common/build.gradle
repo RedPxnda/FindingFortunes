@@ -21,6 +21,7 @@ dependencies {
     modApi("com.redpxnda.nucleus:nucleus-codec-common:${rootProject.minecraft_version}+${rootProject.nucleus_codec_version}")
     modApi("com.redpxnda.nucleus:nucleus-config-common:${rootProject.minecraft_version}+${rootProject.nucleus_config_version}")
     modApi("com.redpxnda.nucleus:nucleus-registration-common:${rootProject.minecraft_version}+${rootProject.nucleus_registration_version}")
+    modApi("com.redpxnda.nucleus:nucleus-facet-common:${rootProject.minecraft_version}+${rootProject.nucleus_facet_version}")
 }
 
 publishing {
